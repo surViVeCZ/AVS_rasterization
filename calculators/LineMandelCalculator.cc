@@ -19,6 +19,7 @@ LineMandelCalculator::LineMandelCalculator (unsigned matrixBaseSize, unsigned li
 {
 	data = (int *)(malloc(height * width * sizeof(int)));
 	line = (int *)(malloc(width * sizeof(int)));
+	col = (int *)(malloc(height * sizeof(int)));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
@@ -61,13 +62,13 @@ int * LineMandelCalculator::calculateMandelbrot () {
 	//pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
 	//iteruji pres vsechny body v prostoru imaginarnich cisel
 	int *pdata = data;
-	for (int i = 0; i < height; i++)
+	int N = height*width;
+	for (int i = 1; i <= height; i++)
 	{
-		for (int j = 0; j < width; j++)
+		for (int j = 1; j <= width; j++)
 		{
 			float x = x_start + j * dx; // current real value
 			float y = y_start + i * dy; // current imaginary value
-
 			int value = mandelbrot(x, y, limit);
 
 			*(pdata++) = value;
