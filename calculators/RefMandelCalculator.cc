@@ -28,6 +28,8 @@ static inline int mandelbrot(T real, T imag, int limit)
 	T zReal = real;
 	T zImag = imag;
 
+	//nejvice zanorena smycka
+	//iterativne pocita, zda nedoslo k preskroceni prahove hodnoty z(n) > 2
 	for (int i = 0; i < limit; ++i)
 	{
 		T r2 = zReal * zReal;
@@ -44,6 +46,7 @@ static inline int mandelbrot(T real, T imag, int limit)
 
 int *RefMandelCalculator::calculateMandelbrot()
 {
+	//iteruji pres vsechny body v prostoru imaginarnich cisel
 	int *pdata = data;
 	for (int i = 0; i < height; i++)
 	{
