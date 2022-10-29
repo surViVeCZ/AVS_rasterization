@@ -88,7 +88,7 @@ unicode/unistr.h
 chrono
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BaseMandelCalculator.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BaseMandelCalculator.cc
 iostream
 -
 string
@@ -98,15 +98,15 @@ vector
 algorithm
 -
 BaseMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BaseMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BaseMandelCalculator.h
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BaseMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BaseMandelCalculator.h
 string
 -
 iostream
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BatchMandelCalculator.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BatchMandelCalculator.cc
 iostream
 -
 string
@@ -120,13 +120,13 @@ stdlib.h
 stdexcept
 -
 BatchMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BatchMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BatchMandelCalculator.h
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/BatchMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BatchMandelCalculator.h
 BaseMandelCalculator.h
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/LineMandelCalculator.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.cc
 iostream
 -
 string
@@ -138,13 +138,13 @@ algorithm
 stdlib.h
 -
 LineMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/LineMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.h
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/LineMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.h
 BaseMandelCalculator.h
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/RefMandelCalculator.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.cc
 iostream
 -
 string
@@ -154,15 +154,15 @@ vector
 algorithm
 -
 RefMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/RefMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.h
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators/RefMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.h
 BaseMandelCalculator.h
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/common/cnpy.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/common/cnpy.cc
 cnpy.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/common/cnpy.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/common/cnpy.h
 complex
 -
 cstdlib
@@ -180,7 +180,7 @@ stdexcept
 regex
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/common/cnpy.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/common/cnpy.h
 string
 -
 stdexcept
@@ -208,7 +208,7 @@ stdint.h
 numeric
 -
 
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/main.cc
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/main.cc
 iostream
 -
 string
@@ -218,15 +218,15 @@ vector
 algorithm
 -
 cxxopts.hpp
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/cxxopts.hpp
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/cxxopts.hpp
 cnpy.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/cnpy.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/cnpy.h
 vector_helpers.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/vector_helpers.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/vector_helpers.h
 RefMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/RefMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/RefMandelCalculator.h
 LineMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/LineMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/LineMandelCalculator.h
 BatchMandelCalculator.h
-/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/BatchMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/BatchMandelCalculator.h
 

@@ -16,4 +16,5 @@ public:
 
 private:
     int *data;
+    int *line;
 };

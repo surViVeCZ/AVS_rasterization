@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS
+# Install script for directory: /mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

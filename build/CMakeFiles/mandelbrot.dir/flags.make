@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -march=native -mtune=native    -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/common -I/mnt/c/Users/poucp/Desktop/schooll/1MIT/AVS/calculators 
+CXX_INCLUDES = -I/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/common -I/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators 
 
