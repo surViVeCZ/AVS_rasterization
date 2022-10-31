@@ -54,6 +54,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
 
                 // navýšení counteru
                 pdata[i * width + j]++;
+                pdata[(height - i - 1) * width + j]++;
             }
         }
     }
