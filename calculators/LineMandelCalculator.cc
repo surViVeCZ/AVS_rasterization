@@ -42,24 +42,27 @@ int *LineMandelCalculator::calculateMandelbrot() {
     // @TODO implement the calculator & return array of integers
     // pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
     // iteruji pres vsechny body v prostoru imaginarnich cisel
-    // iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
+
     for (int i = 0; i < height; i++) {
         float y = y_start + i * dy;  // current imaginary value
         for (int k = 0; k < limit; k++) {
             float i2 = y * y;
-
+            float zImag = y;
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
+                float zReal = x;
                 float r2 = x * x;
 
                 if (r2 + i2 > 4.0f) {
                     // nějaká bool arary, kde si zaznačím překročení hranice pro konkrétní pixe, abych znovu nepřičítal
                     overstepped[j] = true;
                 }
+                zImag = 2.0f * zReal * zImag + y;
+                zReal = r2 - i2 + x;
+
                 // navýšení counteru
-                line_limits[j] += 1;
-                // pdata[j] = line_limits[j];
+                pdata[j] = line_limits[j];
             }
         }
     }
