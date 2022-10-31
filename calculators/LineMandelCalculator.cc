@@ -28,6 +28,8 @@ LineMandelCalculator::~LineMandelCalculator() {
 int *LineMandelCalculator::calculateMandelbrot() {
     // iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
+    float zReal[width];
+    float zImag[width];
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
