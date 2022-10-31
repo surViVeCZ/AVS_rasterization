@@ -45,8 +45,8 @@ int *LineMandelCalculator::calculateMandelbrot() {
     // iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
     for (int i = 0; i < height; i++) {
+        float y = y_start + i * dy;  // current imaginary value
         for (int k = 0; k < limit; k++) {
-            float y = y_start + i * dy;  // current imaginary value
             float i2 = y * y;
 
             for (int j = 0; j < width; j++) {
