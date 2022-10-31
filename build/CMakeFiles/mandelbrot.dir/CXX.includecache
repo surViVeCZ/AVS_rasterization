@@ -127,34 +127,34 @@ BaseMandelCalculator.h
 -
 
 /mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.cc
+LineMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.h
+stdlib.h
+-
+algorithm
+-
 iostream
 -
 string
 -
 vector
 -
-algorithm
--
-stdlib.h
--
-LineMandelCalculator.h
-/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.h
 
 /mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.h
 BaseMandelCalculator.h
 -
 
 /mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.cc
+RefMandelCalculator.h
+/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.h
+algorithm
+-
 iostream
 -
 string
 -
 vector
 -
-algorithm
--
-RefMandelCalculator.h
-/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.h
 
 /mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.h
 BaseMandelCalculator.h

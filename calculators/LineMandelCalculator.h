@@ -7,17 +7,16 @@
 
 #include <BaseMandelCalculator.h>
 
-class LineMandelCalculator : public BaseMandelCalculator
-{
-public:
+class LineMandelCalculator : public BaseMandelCalculator {
+   public:
     LineMandelCalculator(unsigned matrixBaseSize, unsigned limit);
     ~LineMandelCalculator();
     int *calculateMandelbrot();
-    template <typename T> static inline int  *matrix_line(T y, size_t limit);
-    
+    template <typename T>
+    static inline int *matrix_line(T y, size_t limit);
 
-private:
+   private:
     int *data;
-    int *rows;
-    int *cols;
+    int *overstepped;
+    int *line_limits;
 };

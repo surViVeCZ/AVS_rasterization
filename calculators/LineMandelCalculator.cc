@@ -4,86 +4,64 @@
  * @brief Implementation of Mandelbrot calculator that uses SIMD paralelization over lines
  * @date 29.10.2022
  */
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include "LineMandelCalculator.h"
 
 #include <stdlib.h>
 
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 
-#include "LineMandelCalculator.h"
-
-
-LineMandelCalculator::LineMandelCalculator (unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator")
-{
-	data = (int *)(malloc(height * width * sizeof(int)));
-	rows = (int *)(malloc(width * sizeof(int)));
-	cols = (int *)(malloc(height * sizeof(int)));
+LineMandelCalculator::LineMandelCalculator(unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator") {
+    data = (int *)(malloc(height * width * sizeof(int)));
+    // rows = (int *)(malloc(width * sizeof(int)));
+    // cols = (int *)(malloc(height * sizeof(int)));
+    int *line_limits = (int *)malloc(width * sizeof(int));
+    bool *overstepped = (bool *)malloc(width * sizeof(int));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
-	free(data);
-	data = NULL;
+    free(data);
+    data = NULL;
 }
 
-//načtení řádku do arraye
-template <typename T> static inline int  *matrix_line(T  y_real, size_t row_lenght){
-	static int cnt = 0;
-	T real_array[row_lenght];
+// načtení řádku do arraye
+template <typename T>
+static inline int *matrix_line(T y_real, size_t row_lenght) {
+    static int cnt = 0;
+    T real_array[row_lenght];
 
-	//ukladani realnych cisel x
-	real_array[cnt] = y_real;
-	cnt++;
-	return real_array
+    // ukladani realnych cisel x
+    real_array[cnt] = y_real;
+    cnt++;
+    return real_array;
 }
 
-static inline int mandelbrot(T real, T imag, int limit)
-{
-	T zReal = real;
-	T zImag = imag;
+int *LineMandelCalculator::calculateMandelbrot() {
+    // @TODO implement the calculator & return array of integers
+    // pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
+    // iteruji pres vsechny body v prostoru imaginarnich cisel
+    // iteruji pres vsechny body v prostoru imaginarnich cisel
+    int *pdata = data;
+    for (int i = 0; i < height; i++) {
+        for (int k = 0; k < limit; k++) {
+            float y = y_start + i * dy;  // current imaginary value
+            float i2 = y * y;
 
-	//nejvice zanorena smycka
-	//iterativne pocita, zda nedoslo k preskroceni prahove hodnoty z(n) > 2
-	for (int i = 0; i < limit; ++i)
-	{
-		T r2 = zReal * zReal;
-		T i2 = zImag * zImag;
+            for (int j = 0; j < width; j++) {
+                float x = x_start + j * dx;  // current real value
+                float r2 = x * x;
 
-		if (r2 + i2 > 4.0f)
-			return i;
-
-		zImag = 2.0f * zReal * zImag + imag;
-		zReal = r2 - i2 + real;
-	}
-	return limit;
-}
-
-int * LineMandelCalculator::calculateMandelbrot () {
-	// @TODO implement the calculator & return array of integers
-
-	//pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
-	//iteruji pres vsechny body v prostoru imaginarnich cisel
-	int *pdata = data;
-	int N = width*height;
-	int line[width];
-
-	//iteruji přes řádky
-	for (int j = 0; j < width; j++)
-	{
-		//line = 1 řádek matice
-		if(line){
-			float x = x_start + j * dx;
-			
-			int value = mandelbrot(x, line, limit);
-			*(pdata++) = value;
-		}
-		//iterace po sloupcích
-		for (int i = 0; i < height; i++)
-		{
-			float y = y_start + i * dy;
-			line[i] = y;
-		}
-	}
-	return data;
+                if (r2 + i2 > 4.0f) {
+                    // nějaká bool arary, kde si zaznačím překročení hranice pro konkrétní pixe, abych znovu nepřičítal
+                    overstepped[j] = true;
+                }
+                // navýšení counteru
+                line_limits[j] += 1;
+                // pdata[j] = line_limits[j];
+            }
+        }
+    }
+    return data;
 }
