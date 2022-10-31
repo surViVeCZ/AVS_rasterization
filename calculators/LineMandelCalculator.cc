@@ -18,8 +18,8 @@
 LineMandelCalculator::LineMandelCalculator (unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator")
 {
 	data = (int *)(malloc(height * width * sizeof(int)));
-	line = (int *)(malloc(width * sizeof(int)));
-	col = (int *)(malloc(height * sizeof(int)));
+	rows = (int *)(malloc(width * sizeof(int)));
+	cols = (int *)(malloc(height * sizeof(int)));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
@@ -27,16 +27,19 @@ LineMandelCalculator::~LineMandelCalculator() {
 	data = NULL;
 }
 
-template <typename T>
+//načtení řádku do arraye
+template <typename T> static inline int  *matrix_line(T  y_real, size_t row_lenght){
+	static int cnt = 0;
+	T real_array[row_lenght];
+
+	//ukladani realnych cisel x
+	real_array[cnt] = y_real;
+	cnt++;
+	return real_array
+}
+
 static inline int mandelbrot(T real, T imag, int limit)
 {
-	// static int cnt = 0
-	// T real_array[size];
-
-	// //ukladani realnych cisel x
-	// real_array[cnt] = real;
-	// cnt++;
-
 	T zReal = real;
 	T zImag = imag;
 
@@ -62,16 +65,24 @@ int * LineMandelCalculator::calculateMandelbrot () {
 	//pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
 	//iteruji pres vsechny body v prostoru imaginarnich cisel
 	int *pdata = data;
-	int N = height*width;
-	for (int i = 1; i <= height; i++)
-	{
-		for (int j = 1; j <= width; j++)
-		{
-			float x = x_start + j * dx; // current real value
-			float y = y_start + i * dy; // current imaginary value
-			int value = mandelbrot(x, y, limit);
+	int N = width*height;
+	int line[width];
 
+	//iteruji přes řádky
+	for (int j = 0; j < width; j++)
+	{
+		//line = 1 řádek matice
+		if(line){
+			float x = x_start + j * dx;
+			
+			int value = mandelbrot(x, line, limit);
 			*(pdata++) = value;
+		}
+		//iterace po sloupcích
+		for (int i = 0; i < height; i++)
+		{
+			float y = y_start + i * dy;
+			line[i] = y;
 		}
 	}
 	return data;
