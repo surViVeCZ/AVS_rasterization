@@ -44,7 +44,6 @@ int *LineMandelCalculator::calculateMandelbrot() {
         for (int k = 0; k < limit; k++) {
 
             #pragma omp simd aligned(zReal:sizeof(zReal))
-            #pragma omp simd aligned(zImag:sizeof(zImag))
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
