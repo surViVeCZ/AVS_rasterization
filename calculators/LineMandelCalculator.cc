@@ -40,6 +40,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
             zImag[l] = 0;
             // overstepped[l] = false;
         }
+        #pragma omp simd reduction(+:sum)
         for (int k = 0; k < limit; k++) {
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
