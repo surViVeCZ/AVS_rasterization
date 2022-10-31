@@ -17,6 +17,7 @@ class LineMandelCalculator : public BaseMandelCalculator {
 
    private:
     int *data;
-    int *overstepped;
-    int *line_limits;
+    bool *overstepped;
+    float *zReal;
+    float *zImag;
 };

@@ -15,10 +15,9 @@
 
 LineMandelCalculator::LineMandelCalculator(unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator") {
     data = (int *)(malloc(height * width * sizeof(int)));
-    // rows = (int *)(malloc(width * sizeof(int)));
-    // cols = (int *)(malloc(height * sizeof(int)));
-    int *line_limits = (int *)malloc(width * sizeof(int));
-    bool *overstepped = (bool *)malloc(width * sizeof(int));
+    overstepped = (bool *)malloc(width * sizeof(bool));
+    zReal = (float *)malloc(width * sizeof(float));
+    zImag = (float *)malloc(width * sizeof(float));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
@@ -26,43 +25,35 @@ LineMandelCalculator::~LineMandelCalculator() {
     data = NULL;
 }
 
-// načtení řádku do arraye
-template <typename T>
-static inline int *matrix_line(T y_real, size_t row_lenght) {
-    static int cnt = 0;
-    T real_array[row_lenght];
-
-    // ukladani realnych cisel x
-    real_array[cnt] = y_real;
-    cnt++;
-    return real_array;
-}
-
 int *LineMandelCalculator::calculateMandelbrot() {
-    // @TODO implement the calculator & return array of integers
-    // pocitani iteraci musi bzt o uroven vys, nutne prubezne ukladani dat
     // iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
+    for (int x = 0; x < width * height; x++) {
+        pdata[x] = 0;
+    }
 
-    for (int i = 0; i < height; i++) {
+    for (int i = 0; i < height / 2; i++) {
         float y = y_start + i * dy;  // current imaginary value
+        // nulování
+        for (int l = 0; l < width; l++) {
+            zReal[l] = 0;
+            zImag[l] = 0;
+            // overstepped[l] = false;
+        }
         for (int k = 0; k < limit; k++) {
-            float i2 = y * y;
-            float zImag = y;
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
-                float zReal = x;
-                float r2 = x * x;
+                float r2 = zReal[j] * zReal[j];
+                float i2 = zImag[j] * zImag[j];
 
                 if (r2 + i2 > 4.0f) {
-                    // nějaká bool arary, kde si zaznačím překročení hranice pro konkrétní pixe, abych znovu nepřičítal
-                    overstepped[j] = true;
+                    continue;
                 }
-                zImag = 2.0f * zReal * zImag + y;
-                zReal = r2 - i2 + x;
+                zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
+                zReal[j] = r2 - i2 + x;
 
                 // navýšení counteru
-                pdata[j] = line_limits[j];
+                pdata[i * width + j]++;
             }
         }
     }
