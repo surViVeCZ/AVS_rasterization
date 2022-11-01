@@ -37,15 +37,17 @@ int *LineMandelCalculator::calculateMandelbrot() {
     for (int i = 0; i < height / 2; i++) {
         float y = y_start + i * dy;  // current imaginary value
         // nulování
+        #pragma omp simd
         for (int l = 0; l < width; l++) {
             zReal[l] = 0;
             zImag[l] = 0;
             // overstepped[l] = false;
         }
-        #pragma omp simd reduction(+:sum)
+       
         for (int k = 0; k < limit; k++) {
 
-            #pragma omp simd aligned(zReal:sizeof(zReal))
+            //TODO invalid entity
+            #pragma omp simd
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
