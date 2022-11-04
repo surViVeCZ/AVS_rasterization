@@ -18,10 +18,9 @@
 BatchMandelCalculator::BatchMandelCalculator (unsigned matrixBaseSize, unsigned limit) :
 	BaseMandelCalculator(matrixBaseSize, limit, "BatchMandelCalculator")
 {
-	data = (int *)(malloc(height * width * sizeof(int)));
-    overstepped = (bool *)malloc(width * sizeof(bool));
-    zReal = (float *)malloc(width * sizeof(float));
-    zImag = (float *)malloc(width * sizeof(float));
+    data = (int *)aligned_alloc(1024, height * width * sizeof(int));
+    zImag = (float *)aligned_alloc(1024, width*sizeof(float));
+    zReal = (float *)aligned_alloc(1024, width*sizeof(float));
 }
 
 BatchMandelCalculator::~BatchMandelCalculator() {
@@ -30,7 +29,6 @@ BatchMandelCalculator::~BatchMandelCalculator() {
 	free(zImag);
     data = NULL;
 }
-
 
 int * BatchMandelCalculator::calculateMandelbrot () {
 	// iteruji pres vsechny body v prostoru imaginarnich cisel
@@ -46,23 +44,25 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     for (int i = 0; i < height / 2; i++) {
         float y = y_start + i * dy;  // current imaginary value
         // nulování
+        offset = 0;
         #pragma omp simd
         for (int l = 0; l < width; l++) {
             zReal[l] = 0;
             zImag[l] = 0;
-            // overstepped[l] = false;
         }
        
         for (int k = 0; k < limit; k++) {
             //iteruji po 64 prvcích
             #pragma omp simd
-            for (int j = offset; j < 64+offset; j++) {
+            for (int j = offset; j < (64+offset); j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
                 float i2 = zImag[j] * zImag[j];
+                //printf("%f %f\n", r2, i2);
 
                 if (r2 + i2 > 4.0f) {
                     cnt++;
+                    printf("tady\n");
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
@@ -70,13 +70,17 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 // navýšení counteru
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
+                //printf("%d\n", pdata[i*width+j]);
             }
 			offset += 64;
-            if(cnt == width || offset > width){
+            if(cnt == width || offset+64 > width){
                 break;
             }
         }
-        offset = 0;
     }
+    //  for (int l = 0; l < width; l++) {
+    //         printf("%d\n", pdata[l]);
+    //     }
+       
     return data;
 }

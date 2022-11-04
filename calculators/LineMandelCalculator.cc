@@ -14,10 +14,12 @@
 #include <vector>
 
 LineMandelCalculator::LineMandelCalculator(unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator") {
-    data = (int *)(malloc(height * width * sizeof(int)));
-    overstepped = (bool *)malloc(width * sizeof(bool));
-    zReal = (float *)malloc(width * sizeof(float));
-    zImag = (float *)malloc(width * sizeof(float));
+    data = (int *)aligned_alloc(1024, height * width * sizeof(int));
+    // overstepped = (bool *)malloc(width * sizeof(bool));
+    // zReal = (float *)malloc(width * sizeof(float));
+    // zImag = (float *)malloc(width * sizeof(float));
+    zImag = (float *)aligned_alloc(1024, width*sizeof(float));
+    zReal = (float *)aligned_alloc(1024, width*sizeof(float));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
@@ -55,6 +57,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
                 float i2 = zImag[j] * zImag[j];
+                //printf("%f %f\n", r2, i2);
 
                 if (r2 + i2 > 4.0f) {
                     cnt++;

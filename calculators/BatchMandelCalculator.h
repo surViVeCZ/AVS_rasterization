@@ -19,7 +19,6 @@ public:
 private:
     private:
     int *data;
-    bool *overstepped;
     float *zReal;
     float *zImag;
 };

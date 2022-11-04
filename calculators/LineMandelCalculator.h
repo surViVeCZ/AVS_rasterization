@@ -12,8 +12,6 @@ class LineMandelCalculator : public BaseMandelCalculator {
     LineMandelCalculator(unsigned matrixBaseSize, unsigned limit);
     ~LineMandelCalculator();
     int *calculateMandelbrot();
-    template <typename T>
-    static inline int *matrix_line(T y, size_t limit);
 
    private:
     int *data;
