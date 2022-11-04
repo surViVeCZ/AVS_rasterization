@@ -1,8 +1,8 @@
 /**
  * @file BatchMandelCalculator.cc
- * @author FULL NAME <xlogin00@stud.fit.vutbr.cz>
- * @brief Implementation of Mandelbrot calculator that uses SIMD paralelization over small batches
- * @date DATE
+ * @author Petr Pouč xpoucp01@stud.fit.vutbr.cz
+ * @brief Implementation of Mandelbrot calculator that uses SIMD paralelization over lines
+ * @date 04.11.2022
  */
 
 #include <iostream>
@@ -18,11 +18,15 @@
 BatchMandelCalculator::BatchMandelCalculator (unsigned matrixBaseSize, unsigned limit) :
 	BaseMandelCalculator(matrixBaseSize, limit, "BatchMandelCalculator")
 {
-	// @TODO allocate & prefill memory
+	data = (int *)(malloc(height * width * sizeof(int)));
+    overstepped = (bool *)malloc(width * sizeof(bool));
+    zReal = (float *)malloc(width * sizeof(float));
+    zImag = (float *)malloc(width * sizeof(float));
 }
 
 BatchMandelCalculator::~BatchMandelCalculator() {
-	// @TODO cleanup the memory
+	free(data);
+    data = NULL;
 }
 
 
