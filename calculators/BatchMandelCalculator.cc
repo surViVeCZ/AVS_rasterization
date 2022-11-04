@@ -34,8 +34,8 @@ int * BatchMandelCalculator::calculateMandelbrot () {
 	// iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
 	int offset = 0;
-    float zReal[64];
-    float zImag[64];
+    float zReal[width];
+    float zImag[width];
     int cnt = 0;
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
