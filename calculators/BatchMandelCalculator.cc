@@ -53,7 +53,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
        
         for (int k = 0; k < limit; k++) {
 			
-            //TODO invalid entity
+            //iteruji po 64 prvcích
             #pragma omp simd
             for (int j = offset; j < 64+offset; j++) {
                 float x = x_start + j * dx;  // current real value
@@ -70,7 +70,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
             }
-			offset +=64;
+			offset += 64;
             if(cnt == width){
                 break;
             }
