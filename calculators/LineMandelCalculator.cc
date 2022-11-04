@@ -22,6 +22,8 @@ LineMandelCalculator::LineMandelCalculator(unsigned matrixBaseSize, unsigned lim
 
 LineMandelCalculator::~LineMandelCalculator() {
     free(data);
+    free(zReal);
+	free(zImag);
     data = NULL;
 }
 

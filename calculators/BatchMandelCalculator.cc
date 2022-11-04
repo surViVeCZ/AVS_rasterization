@@ -26,6 +26,8 @@ BatchMandelCalculator::BatchMandelCalculator (unsigned matrixBaseSize, unsigned 
 
 BatchMandelCalculator::~BatchMandelCalculator() {
 	free(data);
+	free(zReal);
+	free(zImag);
     data = NULL;
 }
 
