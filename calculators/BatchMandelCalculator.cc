@@ -33,10 +33,10 @@ BatchMandelCalculator::~BatchMandelCalculator() {
 int * BatchMandelCalculator::calculateMandelbrot () {
 	// iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
-    float zReal[width];
-    float zImag[width];
-    int cnt = 0;
 	int offset = 0;
+    float zReal[64];
+    float zImag[64];
+    int cnt = 0;
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
@@ -52,7 +52,6 @@ int * BatchMandelCalculator::calculateMandelbrot () {
         }
        
         for (int k = 0; k < limit; k++) {
-			
             //iteruji po 64 prvcích
             #pragma omp simd
             for (int j = offset; j < 64+offset; j++) {
@@ -71,7 +70,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 pdata[(height - i - 1) * width + j]++;
             }
 			offset += 64;
-            if(cnt == width){
+            if(cnt == width || offset > width){
                 break;
             }
         }
