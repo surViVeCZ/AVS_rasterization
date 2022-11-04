@@ -76,6 +76,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 break;
             }
         }
+        offset = 0;
     }
     return data;
 }
