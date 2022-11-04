@@ -36,6 +36,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     float zReal[width];
     float zImag[width];
     int cnt = 0;
+	int offset = 0;
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
@@ -51,10 +52,10 @@ int * BatchMandelCalculator::calculateMandelbrot () {
         }
        
         for (int k = 0; k < limit; k++) {
-
+			
             //TODO invalid entity
             #pragma omp simd
-            for (int j = 0; j < width; j++) {
+            for (int j = offset; j < 64+offset; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
                 float i2 = zImag[j] * zImag[j];
@@ -65,11 +66,11 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
                 zReal[j] = r2 - i2 + x;
-
                 // navýšení counteru
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
             }
+			offset +=64;
             if(cnt == width){
                 break;
             }
