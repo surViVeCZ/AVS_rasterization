@@ -17,7 +17,11 @@ public:
     int * calculateMandelbrot();
 
 private:
-    // @TODO add all internal parameters
+    private:
+    int *data;
+    bool *overstepped;
+    float *zReal;
+    float *zImag;
 };
 
 #endif
