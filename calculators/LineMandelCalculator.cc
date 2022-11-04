@@ -30,6 +30,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
     int *pdata = data;
     float zReal[width];
     float zImag[width];
+    int cnt = 0;
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
@@ -54,6 +55,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 float i2 = zImag[j] * zImag[j];
 
                 if (r2 + i2 > 4.0f) {
+                    cnt++;
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
@@ -62,6 +64,9 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 // navýšení counteru
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
+            }
+            if(cnt == width){
+                break;
             }
         }
     }
