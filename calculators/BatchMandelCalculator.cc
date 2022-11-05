@@ -38,7 +38,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     int batch_start;
     int batch_end;
 
-    for (int x = 0; x < width * height; x++) {
+    for (int x = 0; x < width * height/2; x++) {
         pdata[x] = 0;
     }
 
@@ -73,7 +73,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 zReal[j] = r2 - i2 + x;
                 // navýšení counteru
                 pdata[i * width + j]++;
-                //pdata[(height - i - 1) * width + j]++;
+                pdata[(height - i - 1) * width + j]++;
             }
             //přesun na další batc
             if(cnt == 64){
