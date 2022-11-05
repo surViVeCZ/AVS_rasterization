@@ -33,10 +33,11 @@ BatchMandelCalculator::~BatchMandelCalculator() {
 int * BatchMandelCalculator::calculateMandelbrot () {
 	// iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
-	int offset = 0;
+	int offset = 1;
     float zReal[width];
     float zImag[width];
     int cnt = 0;
+    int j = 0;
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
@@ -54,15 +55,17 @@ int * BatchMandelCalculator::calculateMandelbrot () {
         for (int k = 0; k < limit; k++) {
             //iteruji po 64 prvcích
             #pragma omp simd
-            for (int j = offset; j < (64+offset); j++) {
+            for (j = j+(offset-1)*64; j < (64*offset); j++) {
+                cnt = 0;
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
                 float i2 = zImag[j] * zImag[j];
+                
                 //printf("%f %f\n", r2, i2);
 
                 if (r2 + i2 > 4.0f) {
                     cnt++;
-                    printf("tady\n");
+                    //printf("tady\n");
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
@@ -72,8 +75,14 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 pdata[(height - i - 1) * width + j]++;
                 //printf("%d\n", pdata[i*width+j]);
             }
-			offset += 64;
-            if(cnt == width || offset+64 > width){
+            //přesun na další batch
+            if(cnt == 64){
+                k = 0;
+                cnt = 0;
+                offset +=1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
+            } 
+            if(offset*64 > width){
+                offset = 1;
                 break;
             }
         }
