@@ -35,12 +35,14 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     int *pdata = data;
     float zReal[width];
     float zImag[width];
-    int start_index = 0;
+    int batch_start;
+    int batch_end;
+
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
 
-    for (int i = 0; i < height / 2; i++) {
+    for (int i = 0; i < height; i++) {
         float y = y_start + i * dy;  // current imaginary value
         // nulování
         int offset = 1;
@@ -55,33 +57,33 @@ int * BatchMandelCalculator::calculateMandelbrot () {
         for (int k = 0; k < limit; k++) {
             cnt = 0;
             j = 0;
+            batch_start = (offset-1)*64;
+            batch_end = 64*offset;
             //iteruji po 64 prvcích
             #pragma omp simd
-            for (j = j+(offset-1)*64; j < (64*offset); j++) {
+            for (j = j + batch_start; j < batch_end; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
                 float i2 = zImag[j] * zImag[j];
-                
-                //printf("%f %f\n", r2, i2);
+                //printf("%d %d\n", j, offset);
+                //printf("%d %d\n", j, (64*offset));
                 if (r2 + i2 > 4.0f) {
                     cnt++;
-                    //printf("%d\n", cnt);
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
                 zReal[j] = r2 - i2 + x;
                 // navýšení counteru
                 pdata[i * width + j]++;
-                pdata[(height - i - 1) * width + j]++;
-                //printf("%d\n", pdata[i*width+j]);
+                //pdata[(height - i - 1) * width + j]++;
             }
-            //přesun na další batch 
+            //přesun na další batc
             if(cnt == 64){
-                j = 0;
+                offset += 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
                 k = 0;
-                offset +=1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
             }
-            if(offset*64 >= width){
+            //new line
+            if(offset*64 > width){
                 break;
             }
         }
