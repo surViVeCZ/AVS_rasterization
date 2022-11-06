@@ -75,10 +75,11 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 pdata[(height - i - 1) * width + j]++;
             }
             //přesun na další batch
-            if(cnt == 64){
+            if(cnt == 64 || k == limit - 1){
                 offset = offset + 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
                 k = 0;
             }
+
             //new line
             if(offset*64 > width){
                 break;

@@ -40,7 +40,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
-    #pragma omp simd 
+    
     for (int i = 0; i < height / 2; i++) {
         float y = y_start + i * dy;  // current imaginary value
 	#pragma omp simd aligned(zImag,zReal:64)
@@ -49,7 +49,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
             zImag[l] = 0;
             // overstepped[l] = false;
         }
-	#pragma omp simd 	
+        
         for (int k = 0; k < limit; k++) {
             
 	    #pragma omp simd reduction(+:cnt)
@@ -71,7 +71,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 pdata[(height - i - 1) * width + j]++;
             }
             if(cnt == width){
-		//break;
+		        break;
             }
         }
     }
