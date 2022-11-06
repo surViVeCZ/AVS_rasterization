@@ -14,12 +14,12 @@
 #include <vector>
 
 LineMandelCalculator::LineMandelCalculator(unsigned matrixBaseSize, unsigned limit) : BaseMandelCalculator(matrixBaseSize, limit, "LineMandelCalculator") {
-    data = (int *)aligned_alloc(1024, height * width * sizeof(int));
+    data = (int *)aligned_alloc(64, height * width * sizeof(int));
     // overstepped = (bool *)malloc(width * sizeof(bool));
     // zReal = (float *)malloc(width * sizeof(float));
     // zImag = (float *)malloc(width * sizeof(float));
-    zImag = (float *)aligned_alloc(1024, width*sizeof(float));
-    zReal = (float *)aligned_alloc(1024, width*sizeof(float));
+    zImag = (float *)aligned_alloc(64, width*sizeof(float));
+    zReal = (float *)aligned_alloc(64, width*sizeof(float));
 }
 
 LineMandelCalculator::~LineMandelCalculator() {
@@ -29,30 +29,30 @@ LineMandelCalculator::~LineMandelCalculator() {
     data = NULL;
 }
 
+
 int *LineMandelCalculator::calculateMandelbrot() {
     // iteruji pres vsechny body v prostoru imaginarnich cisel
     int *pdata = data;
     float zReal[width];
     float zImag[width];
     int cnt = 0;
+    #pragma omp simd
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
-
+    #pragma omp simd 
     for (int i = 0; i < height / 2; i++) {
         float y = y_start + i * dy;  // current imaginary value
-        // nulování
-        #pragma omp simd
+	#pragma omp simd aligned(zImag,zReal:64)
         for (int l = 0; l < width; l++) {
             zReal[l] = 0;
             zImag[l] = 0;
             // overstepped[l] = false;
         }
-       
+	#pragma omp simd 	
         for (int k = 0; k < limit; k++) {
-
-            //TODO invalid entity
-            #pragma omp simd
+            
+	    #pragma omp simd reduction(+:cnt)
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
@@ -60,7 +60,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 //printf("%f %f\n", r2, i2);
 
                 if (r2 + i2 > 4.0f) {
-                    cnt++;
+                    cnt = cnt + 1;
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
@@ -71,7 +71,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 pdata[(height - i - 1) * width + j]++;
             }
             if(cnt == width){
-                break;
+		//break;
             }
         }
     }

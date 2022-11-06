@@ -1,22 +1,19 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BaseMandelCalculator.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/calculators/BaseMandelCalculator.cc.o"
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/BatchMandelCalculator.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/calculators/BatchMandelCalculator.cc.o"
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/LineMandelCalculator.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/calculators/LineMandelCalculator.cc.o"
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/calculators/RefMandelCalculator.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/calculators/RefMandelCalculator.cc.o"
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/common/cnpy.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/common/cnpy.cc.o"
-  "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/main.cc" "/mnt/c/users/poucp/desktop/schooll/1MIT/AVS_rasterization/build/CMakeFiles/mandelbrot.dir/main.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../common"
-  "../calculators"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/xpoucp01/AVS_rasterization/calculators/BaseMandelCalculator.cc" "CMakeFiles/mandelbrot.dir/calculators/BaseMandelCalculator.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/calculators/BaseMandelCalculator.cc.o.d"
+  "/home/xpoucp01/AVS_rasterization/calculators/BatchMandelCalculator.cc" "CMakeFiles/mandelbrot.dir/calculators/BatchMandelCalculator.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/calculators/BatchMandelCalculator.cc.o.d"
+  "/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc" "CMakeFiles/mandelbrot.dir/calculators/LineMandelCalculator.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/calculators/LineMandelCalculator.cc.o.d"
+  "/home/xpoucp01/AVS_rasterization/calculators/RefMandelCalculator.cc" "CMakeFiles/mandelbrot.dir/calculators/RefMandelCalculator.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/calculators/RefMandelCalculator.cc.o.d"
+  "/home/xpoucp01/AVS_rasterization/common/cnpy.cc" "CMakeFiles/mandelbrot.dir/common/cnpy.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/common/cnpy.cc.o.d"
+  "/home/xpoucp01/AVS_rasterization/main.cc" "CMakeFiles/mandelbrot.dir/main.cc.o" "gcc" "CMakeFiles/mandelbrot.dir/main.cc.o.d"
   )
 
 # Targets to which this target links.

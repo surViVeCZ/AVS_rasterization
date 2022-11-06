@@ -18,9 +18,9 @@
 BatchMandelCalculator::BatchMandelCalculator (unsigned matrixBaseSize, unsigned limit) :
 	BaseMandelCalculator(matrixBaseSize, limit, "BatchMandelCalculator")
 {
-    data = (int *)aligned_alloc(1024, height * width * sizeof(int));
-    zImag = (float *)aligned_alloc(1024, width*sizeof(float));
-    zReal = (float *)aligned_alloc(1024, width*sizeof(float));
+    data = (int *)aligned_alloc(64, height * width * sizeof(int));
+    zImag = (float *)aligned_alloc(64, width*sizeof(float));
+    zReal = (float *)aligned_alloc(64, width*sizeof(float));
 }
 
 BatchMandelCalculator::~BatchMandelCalculator() {
@@ -41,24 +41,23 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     for (int x = 0; x < width * height/2; x++) {
         pdata[x] = 0;
     }
-
+    #pragma omp simd
     for (int i = 0; i < height; i++) {
         float y = y_start + i * dy;  // current imaginary value
         // nulování
         int offset = 1;
         int cnt = 0;
         int j = 0;
-        #pragma omp simd
+        #pragma omp simd aligned(zReal,zImag:64)
         for (int l = 0; l < width; l++) {
             zReal[l] = 0;
             zImag[l] = 0;
         }
-       
+	
         for (int k = 0; k < limit; k++) {
             cnt = 0;
             j = 0;
-            //TODO invalid entity
-            #pragma omp simd
+	    
             for (j = 64*(offset-1); j < 64*offset; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];
@@ -66,7 +65,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 //printf("%d %d\n", j, offset);
                 //printf("%d %d\n", j, (64*offset));
                 if (r2 + i2 > 4.0f) {
-                    cnt++;
+                    cnt = cnt + 1;
                     continue;
                 }
                 zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
@@ -75,9 +74,9 @@ int * BatchMandelCalculator::calculateMandelbrot () {
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
             }
-            //přesun na další batc
+            //přesun na další batch
             if(cnt == 64){
-                offset += 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
+                offset = offset + 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
                 k = 0;
             }
             //new line
