@@ -10,7 +10,6 @@ Begin optimization report for: LineMandelCalculator::calculateMandelbrot(LineMan
 
 LOOP BEGIN at /home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc(40,5)
 <Peeled loop for vectorization>
-   remark #15301: PEEL LOOP WAS VECTORIZED
 LOOP END
 
 LOOP BEGIN at /home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc(40,5)

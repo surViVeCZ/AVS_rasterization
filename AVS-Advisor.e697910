@@ -1,0 +1,11 @@
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+/home/xpoucp01/AVS_rasterization/calculators/BatchMandelCalculator.cc(51): warning #15552: loop was not vectorized with "simd"
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+Intel(R) Advisor Command Line Tool
+Copyright (C) 2009-2021 Intel Corporation. All rights reserved.
+advisor: Collection started. To stop the collection, either press CTRL-C or enter from another console window: advisor -r /home/xpoucp01/AVS_rasterization/build_advisor/Advisor-ref/e000/hs000 -command stop.

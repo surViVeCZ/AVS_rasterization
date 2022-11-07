@@ -36,7 +36,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
     float zReal[width];
     float zImag[width];
     int cnt = 0;
-    #pragma omp simd
+    #pragma omp simd simdlen(64)
     for (int x = 0; x < width * height; x++) {
         pdata[x] = 0;
     }
@@ -52,7 +52,7 @@ int *LineMandelCalculator::calculateMandelbrot() {
         
         for (int k = 0; k < limit; k++) {
             
-	    #pragma omp simd reduction(+:cnt)
+	    #pragma omp simd reduction(+:cnt) simdlen(64)
             for (int j = 0; j < width; j++) {
                 float x = x_start + j * dx;  // current real value
                 float r2 = zReal[j] * zReal[j];

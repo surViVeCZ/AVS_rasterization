@@ -1,0 +1,4 @@
+# hash file version: 3
+1	7	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	30434	30530	/home/xpoucp01/AVS_rasterization/calculators/RefMandelCalculator.cc	50	100	86ba984e678db873d17239ec8c9c15d9	0	1	0	0	0
+2	9	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	30387	30550	/home/xpoucp01/AVS_rasterization/calculators/RefMandelCalculator.cc	48	167	86ba984e678db873d17239ec8c9c15d9	0	1	0	0	0
+3	10	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	30470	30551,30513	/home/xpoucp01/AVS_rasterization/calculators/RefMandelCalculator.cc	31	43	86ba984e678db873d17239ec8c9c15d9	0	1	0	0	0

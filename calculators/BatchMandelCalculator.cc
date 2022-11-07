@@ -37,18 +37,18 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     float zImag[width];
     int batch = 64;
 
-    #pragma omp simd 
+    #pragma omp simd simdlen(64)
     for (int x = 0; x < width * height/2; x++) {
         pdata[x] = 0;
     }
     
-    for (int i = 0; i < height/2; i++) {
+    for (unsigned short i = 0; i < height/2; i++) {
         float y = y_start + i * dy;  // current imaginary value
         // nulování
         int cnt = 0;
         int j = 0;
 	#pragma omp simd
-	for(int s = 0; s < width/batch; s++){
+	for(unsigned short s = 0; s < width/batch; s++){
 
             #pragma omp simd aligned(zReal,zImag:64)
             for (int l = 0; l < batch; l++) {
@@ -59,7 +59,7 @@ int * BatchMandelCalculator::calculateMandelbrot () {
             for (int k = 0; k < limit; k++) {
                 cnt = 0;
         
-                #pragma omp simd reduction(+:cnt)
+                #pragma omp simd reduction(+:cnt) simdlen(64)
                 for (int j = 0; j < batch; j++) {
                     float x = x_start + (j+s*batch) * dx;  // current real value
                     float r2 = zReal[j] * zReal[j];

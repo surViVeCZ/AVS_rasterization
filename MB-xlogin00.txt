@@ -11,6 +11,9 @@
 3. Jaká byla dosažena výkonnost v Intel Advisoru pro jednotlivé implementace 
 (v GFLOPS)?
 ==============================================================================
+Batch 31.9 GFlops
+Line 28 Gflops
+
 
 
 4. Jaká část kódu byla vektorizována v "Line" implementaci? Vyčteme tuto 

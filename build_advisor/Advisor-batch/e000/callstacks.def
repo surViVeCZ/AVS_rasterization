@@ -1,0 +1,77 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	     22272	    0	      0	                                  _start	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	22272	47	0	4	0	0	0	0	0	0	0	0
+         2	        -1	     22317	    0	      0	                                  _start	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	22272	47	0	4	0	0	0	0	0	0	0	0
+         3	        32	    144530	    1	      1	     [Loop@0x23404 in __libc_start_main]	/lib64/libc.so.6	144388	230	0	1	0	0	0	0	0	0	0	0
+         4	        34	    246332	    0	      0	evaluateCalculator<BatchMandelCalculator>	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	246291	639	0	5	0	1	0	0	0	0	0	0
+         5	        37	     24757	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24734	40	24774	7	0	0	0	0	0	0	0	0
+         6	        45	     25846	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+         7	        45	     25823	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+         8	        45	     25943	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+         9	        45	     25815	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        10	        45	     25751	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        11	        45	     25469	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        12	        45	     25924	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        13	        45	     25478	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        14	        45	     25514	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        15	        45	     25807	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        16	        45	     25677	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        17	        45	     25623	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        18	        45	     25950	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        19	        45	     25879	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        20	        45	     25599	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        21	        45	     25956	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        22	        45	     25736	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        23	        45	     25744	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        24	        45	     25905	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        25	        45	     25713	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        26	        45	     25683	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        27	        45	     25564	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        28	        45	     25899	    1	      0	[Loop at line 59 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25463	527	25990	9	0	0	0	0	0	0	0	0
+        29	        34	    246929	    0	      0	evaluateCalculator<BatchMandelCalculator>	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	246291	639	0	5	0	1	0	0	0	0	0	0
+        30	        29	     24350	    0	      0	BatchMandelCalculator::~BatchMandelCalculator	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24336	80	0	13	0	0	0	0	0	0	0	0
+        31	        30	   1013675	    0	      1	                                  munmap	/lib64/libc.so.6	1013664	37	0	3	0	0	0	0	0	0	0	0
+        32	         2	    144388	    0	      1	                       __libc_start_main	/lib64/libc.so.6	144288	446	0	2	0	0	0	0	0	0	0	0
+        33	         2	    144530	    0	      1	                       __libc_start_main	/lib64/libc.so.6	144288	446	0	2	0	0	0	0	0	0	0	0
+        34	         3	    246276	    0	      0	                                    main	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	236080	17824	0	6	0	0	0	0	0	0	0	0
+        35	         3	    246332	    0	      0	                                    main	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	236080	17824	0	6	0	0	0	0	0	0	0	0
+        36	         4	     24734	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        37	        36	     24757	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24734	40	24699,24774,24960	16	0	0	0	0	0	0	0	0
+        38	         4	     24757	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        39	        37	     24757	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24734	40	24774	7	0	0	0	0	0	0	0	0
+        40	        37	     24684	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24683	16	0	14	0	0	0	0	0	0	0	0
+        41	        37	     24735	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24734	40	24774	7	0	0	0	0	0	0	0	0
+        42	        37	     24865	    1	      0	[Loop at line 41 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24864	96	0	15	0	0	0	0	0	0	0	0
+        43	         4	     25081	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        44	        43	     25149	    1	      0	[Loop at line 45 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25081	1013	26094	11	0	0	0	0	0	0	0	0
+        45	        44	     25463	    1	      0	[Loop at line 51 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	25149	861	26010	10	0	0	0	0	0	0	0	0
+        46	         4	     25846	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        47	         4	     25823	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        48	         4	     25943	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        49	         4	     25815	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        50	         4	     25751	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        51	         4	     25469	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        52	        11	     25463	    1	      0	[Loop at line 65 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	0	0	0	12	0	0	0	0	0	0	0	0
+        53	         4	     25924	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        54	         4	     25478	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        55	        13	     25463	    1	      0	[Loop at line 65 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	0	0	0	12	0	0	0	0	0	0	0	0
+        56	         4	     25514	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        57	        14	     25463	    1	      0	[Loop at line 65 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	0	0	0	12	0	0	0	0	0	0	0	0
+        58	         4	     25807	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        59	         4	     25677	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        60	         4	     25623	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        61	         4	     25950	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        62	         4	     25879	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        63	         4	     25599	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        64	        20	     25463	    1	      0	[Loop at line 65 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	0	0	0	12	0	0	0	0	0	0	0	0
+        65	         4	     25956	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        66	         4	     25736	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        67	         4	     25744	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        68	         4	     25905	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        69	         4	     25713	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        70	         4	     25683	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        71	         4	     25564	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        72	        27	     25463	    1	      0	[Loop at line 65 in BatchMandelCalculator::calculateMandelbrot]	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	0	0	0	12	0	0	0	0	0	0	0	0
+        73	         4	     25899	    0	      0	BatchMandelCalculator::calculateMandelbrot	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	24496	1680	0	8	0	0	0	0	0	0	0	0
+        74	         3	    246929	    0	      0	                                    main	/home/xpoucp01/AVS_rasterization/build_advisor/mandelbrot	236080	17824	0	6	0	0	0	0	0	0	0	0
+        75	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	18	0	0	0	0	0	0	0	0

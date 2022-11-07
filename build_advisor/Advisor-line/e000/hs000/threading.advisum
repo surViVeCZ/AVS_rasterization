@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc"
+           line_no="44"
+           routine="LineMandelCalculator::calculateMandelbrot"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="8.499561E-01"
+           trip_counts="4096"
+           func_instance="11"
+           priority="0"/>
+  <hotspot filename="/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc"
+           line_no="36"
+           routine="LineMandelCalculator::calculateMandelbrot"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="8.199586E-01"
+           trip_counts="100"
+           func_instance="10"
+           priority="0"/>
+  <hotspot filename="/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc"
+           line_no="56"
+           routine="LineMandelCalculator::calculateMandelbrot"
+           is_vectorized="1"
+           self_time="8.199586E-01"
+           total_time="8.199586E-01"
+           trip_counts="192"
+           func_instance="9"
+           confidence="1"
+           efficiency="6.813397E+00"
+           referenceEfficiency="1.562500E+00"
+           priority="0"/>
+  <hotspot filename="/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc"
+           line_no="40"
+           routine="LineMandelCalculator::calculateMandelbrot"
+           is_vectorized="1"
+           self_time="1.600387E-01"
+           total_time="1.600387E-01"
+           trip_counts="1572864"
+           func_instance="16"
+           priority="0"/>
+  <hotspot filename="/home/xpoucp01/AVS_rasterization/calculators/LineMandelCalculator.cc"
+           line_no="47"
+           routine="LineMandelCalculator::calculateMandelbrot"
+           is_vectorized="1"
+           self_time="2.999742E-02"
+           total_time="2.999742E-02"
+           trip_counts="768"
+           func_instance="12"
+           confidence="1"
+           efficiency="2.250000E+02"
+           referenceEfficiency="6.250000E+00"
+           priority="0"/>
+</IntelParallelAdvisorSummary >
