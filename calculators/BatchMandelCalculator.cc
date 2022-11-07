@@ -35,8 +35,8 @@ int * BatchMandelCalculator::calculateMandelbrot () {
     int *pdata = data;
     float zReal[width];
     float zImag[width];
-    int batch_start;
-    int batch_end;
+    int batch = 64;
+
 
     for (int x = 0; x < width * height/2; x++) {
         pdata[x] = 0;
@@ -48,47 +48,49 @@ int * BatchMandelCalculator::calculateMandelbrot () {
         int offset = 1;
         int cnt = 0;
         int j = 0;
-        #pragma omp simd aligned(zReal,zImag:64)
-        for (int l = 0; l < width; l++) {
-            zReal[l] = 0;
-            zImag[l] = 0;
-        }
-	
-        for (int k = 0; k < limit; k++) {
-            cnt = 0;
-            j = 0;
-	    
-            for (j = 64*(offset-1); j < 64*offset; j++) {
-                float x = x_start + j * dx;  // current real value
-                float r2 = zReal[j] * zReal[j];
-                float i2 = zImag[j] * zImag[j];
-                //printf("%d %d\n", j, offset);
-                //printf("%d %d\n", j, (64*offset));
-                if (r2 + i2 > 4.0f) {
-                    cnt = cnt + 1;
-                    continue;
-                }
-                zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
-                zReal[j] = r2 - i2 + x;
-                // navýšení counteru
-                pdata[i * width + j]++;
-                pdata[(height - i - 1) * width + j]++;
-            }
-            //přesun na další batch
-            if(cnt == 64 || k == limit - 1){
-                offset = offset + 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
-                k = 0;
-            }
+        for(int s = 0; s < width/batch; s++){
 
-            //new line
-            if(offset*64 > width){
-                break;
+            #pragma omp simd aligned(zReal,zImag:64)
+            for (int l = 0; l < batch; l++) {
+                zReal[l] = 0;
+                zImag[l] = 0;
+            }
+        
+            for (int k = 0; k < limit; k++) {
+                cnt = 0;
+                j = 0;
+            
+                for (j = 0; j < batch; j++) {
+                    float x = x_start + j * dx;  // current real value
+                    float r2 = zReal[j] * zReal[j];
+                    float i2 = zImag[j] * zImag[j];
+                 
+                    if (r2 + i2 > 4.0f) {
+                        cnt = cnt + 1;
+                        continue;
+                    }
+                    zImag[j] = 2.0f * zReal[j] * zImag[j] + y;
+                    zReal[j] = r2 - i2 + x;
+                    // navýšení counteru
+                    pdata[i* width + s*batch + j]++;
+                    //pdata[(height - i - 1) * width + j]++;
+                }
+                //přesun na další batch
+                // if(cnt == 64 || k == limit - 1){
+                //     offset = offset + 1; //všech 64 dosáhlo hranice, pokračuji na dalších 64
+                //     k = 0;
+                // }
+                if(cnt == batch){
+                    break;
+                }
+
+                // //new line
+                // if(offset*64 > width){
+                //     break;
+                // }
             }
         }
     }
-    //  for (int l = 0; l < width; l++) {
-    //         printf("%d\n", pdata[l]);
-    //     }
        
     return data;
 }

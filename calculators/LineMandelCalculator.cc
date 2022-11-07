@@ -70,9 +70,9 @@ int *LineMandelCalculator::calculateMandelbrot() {
                 pdata[i * width + j]++;
                 pdata[(height - i - 1) * width + j]++;
             }
-            if(cnt == width){
-		        break;
-            }
+            // if(cnt == width){
+		    //     break;
+            // }
         }
     }
     return data;
