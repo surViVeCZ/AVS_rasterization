@@ -2,10 +2,16 @@
 
 1. Proč je nutné určovat, zda má výpočet pokračovat?
 ==============================================================================
+Kdybychom neurčili, kdy je potřeba ve výpočtu pokračovat, a kdy jej zastavit, program by provedl zbytečně mnoho smyček,
+což by vedlo k prodloužení výpočtu a snížení celkového výkonu. Z tohoto důvodu v obou implementacích používám proměnnou cnt, díky
+které poznám, že všechny prvky na řádku překročili hranici 4.0, čímž ušetřím několik průchodů forem - var < limit 
 
 
 2. Byla "Line" vektorizace efektivní? Proč?
 ==============================================================================
+Line vektorizace byla efektivní, dle intel advisoru, je tzv. vectorisation gain pětinásobný. Rychlost výpočtu je 
+dle eval.png až osmkrát rychlejší než původní referenční řešení.
+
 
 
 3. Jaká byla dosažena výkonnost v Intel Advisoru pro jednotlivé implementace 
@@ -19,10 +25,16 @@ Line 28 Gflops
 4. Jaká část kódu byla vektorizována v "Line" implementaci? Vyčteme tuto 
 informaci i u batch kalkulátoru?
 ==============================================================================
+V line i batch implementaci jsem se úspěšně pokusil o vektorizaci všech zanořených smyček. 
+Vektorizovány jsou stejné části programu, počáteční inicializace zarovnaného pole pomocí "simdlen(64)", 
+nulování položek zReal, zImag při přechodu na nový řádek pomocí "aligned(zImag,zReal:64)", u nejvíce zanořené smyčky
+je za účelem vektorizace použita redukce "reduction(+:cnt) simdlen(64)".
 
 
 5. Co vyčteme z Roofline modelu pro obě vektorizované implementace?
 ==============================================================================
+Nameřené hodnoty výpočtu do Roofline modelu se v obou případěch téměř nachází na horizontální hranici L1 cache, 
+což indikuje maximalní využití paměti L2.
 
 
 
