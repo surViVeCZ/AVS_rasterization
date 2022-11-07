@@ -1,9 +1,0 @@
-rm: cannot remove 'tmp_*': No such file or directory
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-/home/xpoucp01/AVS_rasterization/calculators/BatchMandelCalculator.cc(51): warning #15552: loop was not vectorized with "simd"
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location
-icpc: remark #10397: optimization reports are generated in *.optrpt files in the output location

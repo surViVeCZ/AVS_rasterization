@@ -1,3 +1,0 @@
-/home/xpoucp01/AVS_rasterization/build_advisor/CMakeFiles/mandelbrot.dir
-/home/xpoucp01/AVS_rasterization/build_advisor/CMakeFiles/edit_cache.dir
-/home/xpoucp01/AVS_rasterization/build_advisor/CMakeFiles/rebuild_cache.dir
