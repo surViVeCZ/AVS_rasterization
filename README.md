@@ -2,4 +2,4 @@
 
 ## Vektorizace výpočtu Mandelbrot množiny 
 
-Body ?/10
+Body 10/10
